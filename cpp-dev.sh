@@ -5,7 +5,7 @@ devpath="/Users/johnsonan/Documents/GitHub/CPP"
 # Name of the container, default "cpp-dev"
 cname="cpp-dev"
 
-if [[ ! "$(docker ps -q -f name=$cname)" ]]; then
+if [[ ! "$(docker ps -a -q -f name=$cname)" ]]; then
 	docker run -d -p 3838:3838 --name="$cname" -v $devpath:/root/CPP johnsonan/cpp
 else
 	docker start "$cname"
